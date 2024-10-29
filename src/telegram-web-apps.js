@@ -1876,9 +1876,10 @@
     }
     WebView.postEvent('web_app_switch_inline_query', false, {query: query, chat_types: chat_types});
   };
-  WebApp.openLink = function (url, options, acceptProtocols = []) {
+  WebApp.openLink = function (url, options) {
     var a = document.createElement('A');
     a.href = url;
+    const acceptProtocols = options?.acceptProtocols || []
     if (a.protocol != 'http:' &&
         a.protocol != 'https:' && !acceptProtocols.includes(a.protocol)) {
       console.error('[Telegram.WebApp] Url protocol is not supported', url);
