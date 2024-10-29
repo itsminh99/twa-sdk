@@ -1876,7 +1876,7 @@
     }
     WebView.postEvent('web_app_switch_inline_query', false, {query: query, chat_types: chat_types});
   };
-  WebApp.openLink = function (url, options, acceptProtocols) {
+  WebApp.openLink = function (url, options, acceptProtocols = []) {
     var a = document.createElement('A');
     a.href = url;
     if (a.protocol != 'http:' &&
